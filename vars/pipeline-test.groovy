@@ -1,5 +1,5 @@
 pipeline {
-    agent master
+    agent { label 'master' }
 
     parameters {
         string(name: 'RELEASE_BRANCH', defaultValue: 'main', description: 'Branch to load parameters from')
