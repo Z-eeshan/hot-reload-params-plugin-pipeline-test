@@ -11,8 +11,8 @@ pipeline {
         choice(name: 'REGION', choices: ['us-east-1', 'us-west-2', 'eu-central-1', 'ap-southeast-1'], description: 'AWS region for deployment')
         text(name: 'RELEASE_NOTES', defaultValue: '', description: 'Multi-line release notes')
         text(name: 'CONFIG_OVERRIDES', defaultValue: '', description: 'Optional configuration overrides (JSON format)')
-        // password(name: 'API_TOKEN', defaultValue: '', description: 'API authentication token')
-        // password(name: 'DB_PASSWORD', defaultValue: '', description: 'Database password for migration')
+        password(name: 'API_TOKEN', defaultValue: '', description: 'API authentication token')
+        password(name: 'DB_PASSWORD', defaultValue: '', description: 'Database password for migration')
         
         hotReloadParams(
             repoUrl: 'https://github.com/Z-eeshan/hot-reload-params-plugin-pipeline-test.git',
