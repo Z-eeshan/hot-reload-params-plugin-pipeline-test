@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'master' }
+    agent any
 
     parameters {
         string(name: 'RELEASE_BRANCH', defaultValue: 'main', description: 'Branch to load parameters from')
@@ -15,7 +15,7 @@ pipeline {
         // password(name: 'DB_PASSWORD', defaultValue: '', description: 'Database password for migration')
         
         hotReloadParams(
-            repoUrl: 'https://github.com/your-org/your-repo.git',
+            repoUrl: 'https://github.com/Z-eeshan/hot-reload-params-plugin-pipeline-test.git',
             paramFilePath: 'vars/pipeline-test.groovy',
             triggerParamName: 'RELEASE_BRANCH',
             defaultBranch: 'main'
