@@ -32,6 +32,10 @@ pipeline {
                 echo "Region: ${params.REGION}"
                 echo "Skip tests: ${params.SKIP_TESTS}"
                 echo "Release notes: ${params.RELEASE_NOTES}"
+                echo "Config overrides: ${params.CONFIG_OVERRIDES}"
+                echo "Notify Slack: ${params.NOTIFY_SLACK}"
+                echo "API Token: ${params.API_TOKEN ? '****' : 'Not provided'}"
+                echo "DB Password: ${params.DB_PASSWORD ? '****' : 'Not provided'}
             }
         }
     }
