@@ -3,6 +3,7 @@ pipeline {
 
     parameters {
         string(name: 'RELEASE_BRANCH', defaultValue: 'main', description: 'Branch to load parameters from')
+        string(name: 'TEST_BRANCH', defaultValue: 'main', description: 'Branch to load parameters from')
         string(name: 'DEPLOY_ENV', defaultValue: 'staging', description: 'Target deployment environment')
         string(name: 'API_VERSION', defaultValue: 'v1', description: 'API version to deploy')
         booleanParam(name: 'SKIP_TESTS', defaultValue: false, description: 'Skip the test suite')
@@ -11,7 +12,7 @@ pipeline {
         hotReloadParams(
             repoUrl: 'https://github.com/Z-eeshan/hot-reload-params-plugin-pipeline-test.git',
             paramFilePath: 'vars/pipeline-test.groovy',
-            triggerParamName: 'RELEASE_BRANCH',
+            triggerParamName: 'TEST_BRANCH',
             defaultBranch: 'main'
         )
     }
@@ -19,7 +20,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo "Building branch: ${params.RELEASE_BRANCH}"
+                echo "Building branch: ${params.TEST_BRANCH}"
                 echo "Deploy env: ${params.DEPLOY_ENV}"
                 echo "API version: ${params.API_VERSION}"
             }
